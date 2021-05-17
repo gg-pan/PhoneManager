@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Properties>
+		<Property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{%-5level}[%thread] %style{%logger{36}}{cyan} : %msg%n" />
+		<Property name="FILE_PATH" value="logs" />
+	</Properties>
+    <Appenders>
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+			<PatternLayout charset="UTF-8" pattern="${LOG_PATTERN}"/>
+			<ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+        </Console>
+
+        <File name="File" fileName="${FILE_PATH}/console.log">
+             <PatternLayout charset="UTF-8" pattern="${LOG_PATTERN}" />
+        </File>
+		
+        <RollingFile name="RollingFile" fileName="${FILE_PATH}/all.log" filePattern="${FILE_PATH}/${FILE_NAME}-%d{yyyy-MM-dd}_%i.log.gz">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="20MB"/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <root level="debug">
+            <AppenderRef ref="CONSOLE" />
+            <AppenderRef ref="File" />
+			<AppenderRef ref="RollingFile"/>
+        </root>
+    </Loggers>
+</Configuration>
