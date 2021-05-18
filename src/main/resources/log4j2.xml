@@ -10,24 +10,25 @@
 			<ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
         </Console>
 
-        <File name="File" fileName="${FILE_PATH}/console.log">
-             <PatternLayout charset="UTF-8" pattern="${LOG_PATTERN}" />
-        </File>
+<!--        <File name="File" fileName="${FILE_PATH}/console.log">-->
+<!--             <PatternLayout charset="UTF-8" pattern="${LOG_PATTERN}" />-->
+<!--        </File>-->
 		
         <RollingFile name="RollingFile" fileName="${FILE_PATH}/all.log" filePattern="${FILE_PATH}/${FILE_NAME}-%d{yyyy-MM-dd}_%i.log.gz">
             <PatternLayout pattern="${LOG_PATTERN}"/>
             <Policies>
                 <TimeBasedTriggeringPolicy interval="1"/>
-                <SizeBasedTriggeringPolicy size="20MB"/>
+                <SizeBasedTriggeringPolicy size="100MB"/>
             </Policies>
         </RollingFile>
     </Appenders>
 
     <Loggers>
-        <root level="debug">
-            <AppenderRef ref="CONSOLE" />
-            <AppenderRef ref="File" />
+        <root level="info">
 			<AppenderRef ref="RollingFile"/>
         </root>
+        <Logger name="org.springframework" level="info" additivity="false">
+            <AppenderRef ref="CONSOLE"/>
+        </Logger>
     </Loggers>
 </Configuration>
