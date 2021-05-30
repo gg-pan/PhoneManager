@@ -14,7 +14,7 @@
 <!--             <PatternLayout charset="UTF-8" pattern="${LOG_PATTERN}" />-->
 <!--        </File>-->
 		
-        <RollingFile name="RollingFile" fileName="${FILE_PATH}/all.log" filePattern="${FILE_PATH}/${FILE_NAME}-%d{yyyy-MM-dd}_%i.log.gz">
+        <RollingFile name="RollingFile" fileName="${FILE_PATH}/all.log" filePattern="${FILE_PATH}/all-%d{yyyy-MM-dd}_%i.log.gz">
             <PatternLayout pattern="${LOG_PATTERN}"/>
             <Policies>
                 <TimeBasedTriggeringPolicy interval="1"/>
