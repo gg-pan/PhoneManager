@@ -7,5 +7,5 @@ import pers.gg.yh.manager.user.entity.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, String> {
-	public User findUserByPhoneNum(String phoneNum);
+	User findByPhoneNum(String phoneNum);
 }

@@ -1,16 +1,18 @@
 package pers.gg.yh.manager.common.entity;
 
-import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
+import java.time.LocalDateTime;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.time.LocalDateTime;
+import javax.persistence.MappedSuperclass;
 
-@Entity
+import org.hibernate.annotations.GenericGenerator;
+
+import lombok.Data;
+
 @Data
+@MappedSuperclass
 public class BaseMainEntity {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO, generator = "id_sequence")
