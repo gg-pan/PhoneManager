@@ -12,30 +12,32 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import pers.gg.yh.manager.common.controller.AbstractController;
+import pers.gg.yh.manager.common.response.Result;
 import pers.gg.yh.manager.phone.entity.Phone;
 import pers.gg.yh.manager.phone.service.PhoneService;
 
 @RestController
 @RequestMapping("/phone")
-public class PhoneController {
+public class PhoneController extends AbstractController {
 	@Resource
 	private PhoneService phoneService;
 	
 	@ResponseBody
 	@GetMapping("/findById")
-    public Phone findById(@RequestParam String id) {
-        return phoneService.findById(id);
+    public Result<Phone> findById(@RequestParam String id) {
+        return successResponse(phoneService.findById(id));
     }
 	
 	@ResponseBody
 	@GetMapping("/list")
-    public List<Phone> all() {
-        return phoneService.findAll();
+    public Result<List<Phone>> all() {
+        return successResponse(phoneService.findAll());
     }
 	
 	@ResponseBody
 	@PostMapping("/insert")
-	public Phone savePhone(@RequestBody Phone phone) {
-		return phoneService.insertOne(phone);
+	public Result<Phone> savePhone(@RequestBody Phone phone) {
+		return successResponse(phoneService.insertOne(phone));
 	}
 }
