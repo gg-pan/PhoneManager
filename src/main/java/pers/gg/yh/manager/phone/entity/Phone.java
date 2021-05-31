@@ -12,23 +12,13 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 import lombok.Data;
+import pers.gg.yh.manager.common.entity.BaseMainEntity;
 
 @Entity
 @Data
 @Table(name = "tb_phone")
-public class Phone implements Serializable {
+public class Phone extends BaseMainEntity implements Serializable {
 	private static final long serialVersionUID = -8477461446339156247L;
-
-	@Id
-    @GeneratedValue(strategy= GenerationType.AUTO, generator = "id_sequence")
-	@GenericGenerator(name = "id_sequence", strategy = "pers.gg.yh.manager.common.generator.IdGenerator")
-    private String id;
-	
-	private LocalDateTime createdOn;
-	private LocalDateTime updatedOn;
-	private int version;
-	private String refNo;
-	private boolean latest;
 
 	private String brand;	//品牌
     private String model;	//型号
