@@ -16,7 +16,7 @@ public class ItemService extends AbstractService {
 	ItemRepository itemRepository;
 	
 	public Item findByRefNo(String refNo) {
-		return itemRepository.findByRefNoAndLatest(refNo, true);
+		return itemRepository.findByRefNoAndLatest(refNo, true).get();
 	}
 	
 	public List<Item> findAll() {

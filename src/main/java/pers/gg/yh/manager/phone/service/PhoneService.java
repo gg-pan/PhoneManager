@@ -22,7 +22,7 @@ public class PhoneService extends AbstractService {
 	private PhoneRepository phoneRepository;
 	
 	public Phone findByRefNo(String refNo) {
-		return phoneRepository.findByRefNoAndLatest(refNo, true);
+		return phoneRepository.findByRefNoAndLatest(refNo, true).get();
 	}
 	
 	public List<Phone> findAll() {

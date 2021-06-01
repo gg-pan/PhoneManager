@@ -23,7 +23,7 @@ public abstract class AbstractService {
     }
 
     private String findRefNoByModule(String module) {
-    	Seq seq = seqRepository.findByModule(module);
+    	Seq seq = seqRepository.findByModule(module).get();
     	LocalDateTime now = LocalDateTime.now();
     	if (now.getYear() != seq.getUpdatedOn().getYear() && now.getMonthValue() != seq.getUpdatedOn().getMonthValue()) {
     		seq.setSeqNum(1);

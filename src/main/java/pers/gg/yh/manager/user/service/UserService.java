@@ -23,7 +23,7 @@ public class UserService extends AbstractService {
 	private static final String MODULE = "user";
 	
 	public User login(User loginUser) {
-		User user = userRepository.findByPhoneNum(loginUser.getPhoneNum());
+		User user = userRepository.findByPhoneNum(loginUser.getPhoneNum()).get();
 		if (user == null) {
 			throw new RuntimeException("can not find user:" + loginUser.getPhoneNum());
 		}
