@@ -21,8 +21,8 @@ public class PhoneService extends AbstractService {
 	@Resource
 	private PhoneRepository phoneRepository;
 	
-	public Phone findById(String id) {
-		return phoneRepository.findById(id).get();
+	public Phone findByRefNo(String refNo) {
+		return phoneRepository.findByRefNoAndLatest(refNo, true);
 	}
 	
 	public List<Phone> findAll() {

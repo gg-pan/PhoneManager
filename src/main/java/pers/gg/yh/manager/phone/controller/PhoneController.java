@@ -24,9 +24,9 @@ public class PhoneController extends AbstractController {
 	private PhoneService phoneService;
 	
 	@ResponseBody
-	@GetMapping("/findById")
-    public Result<Phone> findById(@RequestParam String id) {
-        return successResponse(phoneService.findById(id));
+	@GetMapping("/findByRefNo")
+    public Result<Phone> findByRefNo(@RequestParam String refNo) {
+        return successResponse(phoneService.findByRefNo(refNo));
     }
 	
 	@ResponseBody

@@ -9,6 +9,7 @@ CREATE TABLE public.tb_user (
 	"version" int4 NULL,
 	ref_no varchar(20) NULL,
 	latest bool NULL,
+	status bool NULL,
 	"name" varchar(20) NULL,
 	email varchar(20) NULL,
 	phone_num varchar(20) NULL,

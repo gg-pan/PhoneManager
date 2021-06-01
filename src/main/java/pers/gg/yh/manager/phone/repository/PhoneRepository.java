@@ -7,5 +7,5 @@ import pers.gg.yh.manager.phone.entity.Phone;
 
 @Repository
 public interface PhoneRepository extends JpaRepository<Phone, String> {
-
+	Phone findByRefNoAndLatest(String refNo, boolean latest);
 }

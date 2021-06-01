@@ -14,7 +14,8 @@ import pers.gg.yh.manager.common.entity.BaseMainEntity;
 public class Phone extends BaseMainEntity implements Serializable {
 	private static final long serialVersionUID = -8477461446339156247L;
 
-	private String brand;	//品牌
-    private String model;	//型号
-    
+	private String brand;			//品牌
+    private String model;			//型号
+    private String serialNumber;	//手机串号
+    private boolean newPhone;		//是否新手机
 }

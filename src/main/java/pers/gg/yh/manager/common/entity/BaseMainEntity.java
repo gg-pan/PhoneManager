@@ -24,4 +24,5 @@ public class BaseMainEntity {
     private int version;
     private String refNo;
     private boolean latest;
+    private boolean status;
 }
